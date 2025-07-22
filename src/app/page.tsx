@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#282828] text-[#ebdbb2]">
@@ -151,6 +149,49 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Github Pages Projects */}
+      <section id="github-pages" className="px-6 py-16 sm:px-8 lg:px-12 bg-[#3c3836]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl font-mono mb-12 text-[#fe8019] gruvbox-glow">./deployed</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Minimalist Pomodoro",
+                type: "Web App",
+                description: "A clean, distraction-free Pomodoro timer when I cannot tolerate the ads, crashes, and subscription models of other pomodoro apps. Mostly done through vibe coding with Cursor and Claude 4 Sonnet.",
+                tech: "Next.js • Tailwind CSS",
+                status: "Live",
+                color: "#83a598",
+                url: "https://vennahlot.github.io/minimalist-pomodoro/"
+              }
+            ].map((project, index) => (
+              <a key={index} href={project.url} target="_blank" rel="noopener noreferrer" className="group border border-[#504945] hover:border-[#fe8019] transition-colors bg-[#282828] block">
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <h3 className="text-lg font-semibold group-hover:text-[#fe8019] transition-colors text-[#fbf1c7] font-mono">{project.title}</h3>
+                      <span className="font-mono text-xs text-[#928374]">{project.type}</span>
+                    </div>
+                    <span className="px-2 py-1 bg-[#504945] font-mono text-xs border border-[#928374]" style={{color: project.color}}>
+                      {project.status}
+                    </span>
+                  </div>
+                  <p className="text-[#d5c4a1] text-sm mb-4 leading-relaxed font-mono">
+                    {project.description}
+                  </p>
+                  <div className="font-mono text-xs text-[#928374] mb-2">
+                    {project.tech}
+                  </div>
+                  <div className="font-mono text-xs text-[#83a598] group-hover:text-[#fe8019] transition-colors">
+                    → View Live Demo
+                  </div>
+                </div>
+              </a>
             ))}
           </div>
         </div>
